@@ -2485,11 +2485,13 @@
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
+			text-shadow: 0px 0px 8px black;
 		}
 
 		#header .image.avatar {
 			margin: 0 0 1em 0;
 			width: 6.25em;
+			box-shadow: 0px 0px 24px 8px black;
 		}
 
 /* Footer */
