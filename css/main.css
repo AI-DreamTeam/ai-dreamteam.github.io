@@ -2038,6 +2038,7 @@
 
 		.image img {
 			border-radius: 0.35em;
+			box-shadow: 3px 3px 12px 0px grey;
 			display: block;
 		}
 
@@ -2457,11 +2458,12 @@
 
 	#header {
 		background-color: #1f1815;
-		background-attachment: scroll,								fixed;
+		background-attachment: scroll, fixed;
 		background-image: url("images/overlay.png"), url("../images/bg.jpg");
-		background-position: top left,							top left;
-		background-repeat: repeat,								no-repeat;
-		background-size: auto,								auto 100%;
+		background-position: top left, top left;
+		background-repeat: repeat, no-repeat;
+		background-size: auto, auto 100%;
+		box-shadow: 6px 6px 24px 0px grey;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
