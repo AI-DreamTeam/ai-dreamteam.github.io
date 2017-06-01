@@ -2038,7 +2038,6 @@
 
 		.image img {
 			border-radius: 0.35em;
-			box-shadow: 3px 3px 12px 0px grey;
 			display: block;
 		}
 
@@ -2063,6 +2062,7 @@
 			}
 
 		.image.fit {
+			box-shadow: 3px 3px 12px 0px grey;
 			display: block;
 			margin: 0 0 2em 0;
 			width: 100%;
