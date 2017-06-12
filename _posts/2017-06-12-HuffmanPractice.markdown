@@ -8,6 +8,7 @@ Hello humans, this week the "AI-DreamTeam" developed a compressor using the Hufm
 This algorithm compress strings and text files using the character's frequency, if higher the frequency is, higher the compression level will be.    
 
 Now, a demo:
+
 <img src="/images/fulls/P02_Huffman.jpg" class="fit image">
 
 In the left side we can type a string o choose a text file using the "file browser" icon.
