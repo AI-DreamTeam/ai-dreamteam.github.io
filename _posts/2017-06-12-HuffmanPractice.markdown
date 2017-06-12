@@ -9,21 +9,21 @@ This algorithm compress strings and text files using the character's frequency, 
 
 Now, a demo:
 
-<img src="/images/fulls/P02_Huffman.jpg" class="fit image">
+<img src="/images/fulls/P02_Huffman2.jpg" class="fit image">
 
-In the left side we can type a string o choose a text file using the "file browser" icon.
+In the left side we can type a string or choose a text file using the "file browser" icon.
 
-In the rigth side are tree buttons:
+In the right side are tree buttons:
 
-  - **Frequency: ** This window will show the frequency table. the table has the character, 
+  - Frequency:  This window will show the frequency table. the table has the character, 
 the frequency of occurrence, and the binary code assigned by the algorithm.
 
-//image here
+<img src="/images/thumbs/P02_Frequency.jpg" class="fit image">
 
- - **Binary tree: ** In this part, you can see a representation of the binary tree.
+ - Binary tree:  In this part, you can see a representation of the binary tree.
   
-//image here
+<img src="/images/thumbs/P02_Binary_tree.jpg" class="fit image">
 
- - **Efficiency: ** Here we have the binary representation of the compressed text and the efficiency percentage of the algorithm
+ - Efficiency: Here we have the binary representation of the compressed text and the efficiency percentage of the algorithm
   
-//image here
+<img src="/images/thumbs/P02_Efficiency.jpg" class="fit image">
