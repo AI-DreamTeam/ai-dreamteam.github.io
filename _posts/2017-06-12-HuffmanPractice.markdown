@@ -27,3 +27,29 @@ the frequency of occurrence, and the binary code assigned by the algorithm.
  - Efficiency: Here we have the binary representation of the compressed text and the efficiency percentage of the algorithm
   
 <img src="/images/thumbs/P02_Efficiency.jpg" class="fit image">
+
+The piece of code that traverses the tree and generates the Huffman code for each letter is the following:
+
+```python
+  #Recursive method which traverses the tree until it finds the Huffman code for
+    #the [letter] parameter and stores it in [codeArray]
+    def getCode(letter, currentNode, isCodeFound, codeArray):
+        if currentNode[0] == letter:
+            isCodeFound = True
+            return isCodeFound
+
+        elif Huffman.hasLeaves(currentNode):
+            if Huffman.hasLeftNode(currentNode):
+                codeArray.append('0')
+                isCodeFound = Huffman.getCode(letter, Huffman.getLeftNode(currentNode), isCodeFound, codeArray)
+
+            if Huffman.hasRightNode(currentNode) and not isCodeFound:
+                codeArray.append('1')
+                isCodeFound = Huffman.getCode(letter, Huffman.getRightNode(currentNode), isCodeFound, codeArray)
+
+        if not isCodeFound:
+            if len(codeArray) > 0:
+                codeArray.pop()
+
+        return isCodeFound
+```
