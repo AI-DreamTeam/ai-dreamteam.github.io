@@ -36,4 +36,6 @@ es_abuelo(X,Y):- hijo(X,Z), hijo(Z,Y), hombre(X).
 [You can see the rest of our code on GitHub!](https://github.com/AI-DreamTeam/p3-prolog/blob/master/Relaciones_Familiares.pl) Happy Hacking! 
 
 
+### Our Conclusions: 
 
+- **Felipe**: I found Prolog to be an interestning method of programming. In this case we used it to make something very simple, but i can see how you can make something advanced with just some simple rules. I can't wait to dive deeper into AI
