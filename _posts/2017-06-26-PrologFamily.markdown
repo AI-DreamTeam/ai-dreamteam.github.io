@@ -38,4 +38,6 @@ es_abuelo(X,Y):- hijo(X,Z), hijo(Z,Y), hombre(X).
 
 ### Our Conclusions: 
 
-- **Felipe**: I found Prolog to be an interestning method of programming. In this case we used it to make something very simple, but i can see how you can make something advanced with just some simple rules. I can't wait to dive deeper into AI
+- **Felipe**: I found Prolog to be an interesting method of programming. In this case we used it to make something very simple, but i can see how you can make something advanced with just some simple rules. I can't wait to dive deeper into AI.
+- **Adrian**: Prolog turned out to be more intuitive the more we used it. It actually felt kind of natural to a point defining the relationships, and seeing how easily we can ask Prolog to see if some conclusions can be inferred from the data and relations we defined.
+- **Kevin**: I really didn't love using Prolog. The bright side was that I felt this was a good excercise in remembering my first first-order logic class, and applying it to a real case scenario.
