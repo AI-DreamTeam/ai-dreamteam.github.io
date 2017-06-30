@@ -1,0 +1,97 @@
+---
+layout: post
+title: Using STRIPS for helping... monkeys?
+---
+<img src= "/images/fulls/Examples-of-NLP-systems-in-Artificial-Intelligence.jpg" class="fit image">
+
+This next practice helped us to learn a bit about the [planning languaje STRIPS](https://en.wikipedia.org/wiki/STRIPS) and also about
+[PDDL](https://en.wikipedia.org/wiki/Planning_Domain_Definition_Language). The main goal was to solve 
+the known [monkey and banana problem](https://en.wikipedia.org/wiki/Monkey_and_banana_problem) by using these two languajes, alongside a
+[javascript library](https://www.npmjs.com/package/strips) which took care of the magic (or the problem?) of interpreting our two 
+PDDL files.
+
+<img src= "/images/fulls/Monkey_banana_Problem.png" class="fit image">
+
+In simple terms, the problem will be solved when the monkey reaches the bananas hanging from the ceiling. For this, he will be able to
+walk between the three "positions" in the universe - A, B or C - move the carboard box to any position, and climb it up or down.
+
+Here, we provide the snippets for the PDDL files where we defined the problem. The [strips library](https://www.npmjs.com/package/strips)
+we used solved the problem using the [depth-first search](https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search) algorithm,
+although it can also use the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+# problem.txt
+```
+(define (problem agarrar-bananas)
+    (:domain chango)
+  (:init (and (punto a) (punto b) (punto c) (mono m) (caja c) (bananas ba)
+         (en ba b) (en c a) (en m c) (abajo m) (arriba ba))
+  (:goal (and (en m b) (arriba m))
+)
+```
+# domain.txt
+```
+(define (domain chango)
+  (:requirements :strips)
+  (:action mover
+     :parameters (?c ?m ?i ?f)
+     :precondition (and (caja ?c) (punto ?i) (punto ?f) (mono ?m) (en ?m ?i) (en ?c ?i))
+     :effect (and (en ?c ?f)) (not (en ?c ?i)) (en ?m ?f) (not (en ?m ?i)))
+  )
+  (:action caminar
+     :parameters (?m ?i ?f)
+     :precondition (and (mono ?m) (punto ?i) (punto ?f) (abajo ?m) (en ?m ?i))
+     :effect (and (en ?m ?f) not (en ?m ?i))
+     )
+  (:action subir 
+     :parameters (?c ?m ?p)
+     :precondition (and (mono ?m) (caja ?c) (punto ?p) (abajo ?m) (en ?m ?p) (en ?c ?p))
+     :effect ((arriba ?m))
+     )
+  (:action bajar 
+     :parameters (?c ?m ?p)
+     :precondition (and (mono ?m) (caja ?c) (punto ?p) (arriba ?m) (en ?m ?p) (en ?c ?p))
+     :effect ((abajo ?m))
+     )
+)
+```
+The code below is how we used the library for interpreting our two PDDL files (the ones above).
+
+# mono.js
+```js
+var strips = require('strips');
+strips.verbose = true;
+
+// Load the domain and problem.
+strips.load('./examples/mono/domain.txt', './examples/mono/problem.txt', function(domain, problem) {
+    // Use A* search to run the problem against the domain.
+    var solutions = strips.solve(domain, problem);
+
+    // Display solution.
+    var solution = solutions[0];
+    console.log('- Solution found in ' + solution.steps + ' steps!');
+    for (var i = 0; i < solution.path.length; i++) {
+        console.log((i + 1) + '. ' + solution.path[i]);
+    }        
+});
+```
+The program's output tells us a bit about the search (information about the tree that's being traversed), the cost 
+of the algorithm, and the steps in order that solve the problem.
+
+<img src= "/images/fulls/P06-Output.png" class="fit image">
+
+### Our Conclusions
+
+- **Adrian**: I found the existing of these two languajes surprising, since the concept of "problem definition" being
+standarized is kinda weird for me. Regardless, I can see their uses, and of course they can, and are applied to more
+complex problems.
+
+- **Felipe**: I liked working with these languajes, only after I understood what I was doing! This was an interesting experience,
+and its an apporach of which I had no knowledge of. Always happy to keep on learning!
+
+- **Kevin**: These two languajes were pretty frustating at first, since the syntax can be a bit weird and not that intuitive.
+Despite that, once you get the hang of it, it becomes easier to make the definitions and think in PDDL!
+
+
+Our code is totally open as always, and you can [check it out](https://github.com/AI-DreamTeam/P06_STRIPS)!
+
+Thanks for reading, and happy hacking!
