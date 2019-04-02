@@ -1,6 +1,6 @@
 # AI Dream Team: ITESO 2017
 
-Our simple, clean and personal blog for our Artificial Inteligence class
+Our simple, clean and personal blog for our Artificial Intelligence class
 
 Jump right in: [ai-dreamteam.github.io](http://ai-dreamteam.github.io)
 
